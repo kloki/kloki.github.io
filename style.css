@@ -16,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #9999a1;
+  color: #b7a55f;
 }
 
 a {
@@ -31,7 +31,7 @@ a:hover {
 
 ul,
 ol {
-  list-style-type: "> ";
+  list-style-type: "✱ ";
   margin-left: 20px;
 }
 
@@ -43,25 +43,64 @@ li {
   font-size: 100px;
 }
 
+div.banner:hover {
+  animation: glitch 0.6s infinite;
+}
+
 @keyframes glitch {
   0% {
     text-shadow:
-      2px 2px red,
-      -2px 2px blue;
+      2px 2px #b7a55f,
+      -2px 2px #1f7a8c;
+  }
+  10% {
+    text-shadow:
+      3px 3px #b7a55f,
+      -3px 1px #1f7a8c;
   }
   20% {
     text-shadow:
-      -2px 0 red,
-      2px 0 blue;
+      -2px 0 #b7a55f,
+      2px 0 #1f7a8c;
+  }
+  30% {
+    text-shadow:
+      1px -1px #b7a55f,
+      -1px 1px #1f7a8c;
+  }
+  40% {
+    text-shadow:
+      2px -2px #b7a55f,
+      -2px 2px #1f7a8c;
   }
   50% {
     text-shadow:
-      2px 0 red,
-      -3px 0 blue;
+      2px 0 #b7a55f,
+      -3px 0 #1f7a8c;
+  }
+  60% {
+    text-shadow:
+      -1px -1px #b7a55f,
+      1px 1px #1f7a8c;
+  }
+  70% {
+    text-shadow:
+      3px 1px #b7a55f,
+      -1px -3px #1f7a8c;
+  }
+  80% {
+    text-shadow:
+      0px 2px #b7a55f,
+      2px -2px #1f7a8c;
+  }
+  90% {
+    text-shadow:
+      -2px 2px #b7a55f,
+      2px 2px #1f7a8c;
   }
   100% {
     text-shadow:
-      2px 0 red,
-      -2px 0 blue;
+      2px 0 #b7a55f,
+      -2px 0 #1f7a8c;
   }
 }
