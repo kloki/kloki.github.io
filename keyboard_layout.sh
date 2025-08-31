@@ -2,7 +2,7 @@
 
 set -eu
 echo "installing dependencies"
-sudo apt install -y git gcc
+sudo apt install -y git gcc make
 
 echo "installing keyd"
 git clone https://github.com/rvaiya/keyd
@@ -14,7 +14,6 @@ rm keyd -rf
 
 echo "setting up layout"
 git clone https://github.com/kloki/my-keyd.git
-sudo mkdir /etc/keyd/
 sudo cp ./my-keyd/default.conf /etc/keyd/
 rm kmy-keyd -rf
 
