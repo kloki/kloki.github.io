@@ -63,6 +63,15 @@
         </ul>
       </section>
       <section>
+        <h1>Installers.</h1>
+        <ul>
+          <li>
+              <div class="copyable">curl -sSL koen.klinke.rs/keyboard_layout.sh | sh <class="copyable">
+          </li>
+        </ul>
+      </section>
+    </div>
+      <section>
         <h1>More.</h1>
         <ul>
           <li>
@@ -71,5 +80,20 @@
         </ul>
       </section>
     </div>
-  </body>
+    <script>
+        document.body.addEventListener('click', function(event) {
+            if (event.target.classList.contains('copyable')) {
+                const textToCopy = event.target.innerText;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    event.target.innerText = "Copied to clipboard!";
+                    setTimeout(() => {
+                        event.target.innerText = textToCopy;
+                    }, 500);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            }
+        });
+    </script>
+</body>
 </html>

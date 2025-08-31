@@ -49,8 +49,12 @@ div.banner:hover {
   animation: glitch 0.6s infinite;
 }
 
-section:hover h1 {
-  animation: glitch 0.6s infinite;
+/* section:hover h1 { */
+/*   animation: glitch 0.6s infinite; */
+/* } */
+
+.copyable {
+  color: #1f7a8c;
 }
 
 @keyframes glitch {
