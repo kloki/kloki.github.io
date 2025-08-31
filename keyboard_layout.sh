@@ -2,7 +2,7 @@
 
 set -eu
 echo "installing dependencies"
-sudo apt install git gcc
+sudo apt install -y git gcc
 
 echo "installing keyd"
 git clone https://github.com/rvaiya/keyd
