@@ -12,8 +12,9 @@ cd ../
 rm keyd -rf
 
 
-echo "setting layout"
+echo "setting up layout"
 git clone https://github.com/kloki/my-keyd.git
+sudo mkdir /etc/keyd/
 sudo cp ./my-keyd/default.conf /etc/keyd/
 rm kmy-keyd -rf
 
