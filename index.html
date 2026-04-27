@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -17,95 +17,111 @@
   </head>
 
   <body>
-    <div>
+    <div class="wrapper">
       <div class="banner">koen.klinke.rs</div>
-      <section>
-        <h1>Tools that I made that work for me.</h1>
-        <ul>
-          <li><a href="https://github.com/kloki/regect">regect</a></li>
-          <li><a href="https://github.com/kloki/absorb">absorb</a></li>
-          <li><a href="https://github.com/kloki/mavsnark">mavsnark</a></li>
-          <li><a href="https://github.com/kloki/tldr">tldr</a></li>
-          <li><a href="https://github.com/kloki/claude-sessions">claude-sessions</a></li>
-          <li><a href="https://github.com/kloki/claudeship">claudeship</a></li>
-        </ul>
-      </section>
-      <section>
-        <h1>Games that I made that you can play.</h1>
-        <ul>
-          <li>
-            <a href="https://koen.klinke.rs/fingers-and-toes/"
-              >Finger and Toes</a
-            >
-          </li>
-          <li>
-            <a href="https://koen.klinke.rs/hyper-tic-tac-toe/"
-              >Hyper Tic Tac Toe</a
-            >
-          </li>
-          <li>
-            <a href="https://github.com/kloki/bigbrainwordle"
-              >BigBrainWordle</a
-            >
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h1>My keyboard layouts.</h1>
-        <ul>
-          <li>
-            <a href="https://configure.zsa.io/ergodox-ez/layouts/Eoj3Y/latest/0"
-              >Ergodox</a
-            >
-          </li>
-          <li>
-            <a href="https://configure.zsa.io/moonlander/layouts/9B7vj/latest/0"
-              >Moonlander</a
-            >
-          </li>
-          <li>
-            <a href="https://github.com/kloki/my-keyd">Keyd</a>
-          </li>
-          <li>
-            <a href="https://github.com/kloki/qmk_firmware/tree/kloki">QMK</a>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h1>Installers.</h1>
-        <ul>
-          <li>
-              <div class="copyable">curl --proto "=https" --tlsv1.2 -sSLf  https://koen.klinke.rs/everything_bagel.sh | sh <class="copyable">
-          </li>
-          <li>
-              <div class="copyable">curl --proto "=https" --tlsv1.2 -sSLf  https://koen.klinke.rs/keyboard_layout.sh | sh <class="copyable">
-          </li>
-        </ul>
-      </section>
-    </div>
-      <section>
-        <h1>More.</h1>
-        <ul>
-          <li>
-            <a href="https://github.com/kloki">Github</a>
-          </li>
-        </ul>
-      </section>
+      <main class="sections">
+        <section>
+          <h1>Tools that I made that work for me.</h1>
+          <ul>
+            <li><a href="https://github.com/kloki/regect">regect</a></li>
+            <li><a href="https://github.com/kloki/absorb">absorb</a></li>
+            <li><a href="https://github.com/kloki/mavsnark">mavsnark</a></li>
+            <li><a href="https://github.com/kloki/tldr">tldr</a></li>
+            <li>
+              <a href="https://github.com/kloki/claude-sessions"
+                >claude-sessions</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/kloki/claudeship">claudeship</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>Games that I made that you can play.</h1>
+          <ul>
+            <li>
+              <a href="https://koen.klinke.rs/fingers-and-toes/"
+                >Finger and Toes</a
+              >
+            </li>
+            <li>
+              <a href="https://koen.klinke.rs/hyper-tic-tac-toe/"
+                >Hyper Tic Tac Toe</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/kloki/bigbrainwordle"
+                >BigBrainWordle</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>My keyboard layouts.</h1>
+          <ul>
+            <li>
+              <a
+                href="https://configure.zsa.io/ergodox-ez/layouts/Eoj3Y/latest/0"
+                >Ergodox</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://configure.zsa.io/moonlander/layouts/9B7vj/latest/0"
+                >Moonlander</a
+              >
+            </li>
+            <li><a href="https://github.com/kloki/my-keyd">Keyd</a></li>
+            <li>
+              <a href="https://github.com/kloki/qmk_firmware/tree/kloki">QMK</a>
+            </li>
+          </ul>
+        </section>
+        <section class="installers">
+          <h1>Installers.</h1>
+          <ul>
+            <li>
+              <span class="prompt">$</span>
+              <code class="copyable"
+                >curl --proto "=https" --tlsv1.2 -sSLf
+                https://koen.klinke.rs/everything_bagel.sh | sh</code
+              >
+            </li>
+            <li>
+              <span class="prompt">$</span>
+              <code class="copyable"
+                >curl --proto "=https" --tlsv1.2 -sSLf
+                https://koen.klinke.rs/keyboard_layout.sh | sh</code
+              >
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h1>More.</h1>
+          <ul>
+            <li><a href="https://github.com/kloki">Github</a></li>
+          </ul>
+        </section>
+      </main>
     </div>
     <script>
-        document.body.addEventListener('click', function(event) {
-            if (event.target.classList.contains('copyable')) {
-                const textToCopy = event.target.innerText;
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    event.target.innerText = "Copied to clipboard!";
-                    setTimeout(() => {
-                        event.target.innerText = textToCopy;
-                    }, 500);
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-            }
-        });
+      document.body.addEventListener("click", function (event) {
+        if (event.target.classList.contains("copyable")) {
+          const textToCopy = event.target.innerText;
+          navigator.clipboard
+            .writeText(textToCopy)
+            .then(() => {
+              event.target.innerText = "Copied to clipboard!";
+              setTimeout(() => {
+                event.target.innerText = textToCopy;
+              }, 500);
+            })
+            .catch((err) => {
+              console.error("Failed to copy: ", err);
+            });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

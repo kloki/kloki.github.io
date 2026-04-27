@@ -1,116 +1,168 @@
+:root {
+  --color-sage: #252323;
+  --color-forest: #dad2bc;
+  --color-vermillion: #b7a55f;
+  --color-gold: #1f7a8c;
+}
+
 html,
 body {
-  background-color: #252323;
-  opacity: 1;
-  background-size: 48px 48px;
-  background-position:
-    0 0,
-    24px 24px;
-
-  color: #dad2bc;
+  background-color: var(--color-sage);
+  color: var(--color-forest);
   font-family: "Fantasque Sans Mono", sans-serif;
-  width: 100%;
-  height: 100%;
-  padding: min(1vw, 1em);
+  min-height: 100vh;
+  padding: min(2vw, 1.5em);
   font-size: min(3vw, 1.2em);
-  overflow: hidden;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 h1 {
-  color: #b7a55f;
+  color: var(--color-vermillion);
   font-size: min(5vw, 1.4em);
+  margin: 0 0 0.4em 0;
 }
 
 a {
-  color: #dad2bc;
+  color: var(--color-forest);
   text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--color-vermillion);
 }
 
 li:hover {
   animation: glitch 0.6s infinite;
-  color: #9999a1;
+  color: var(--color-gold);
 }
 
 ul,
 ol {
   list-style-type: "✱ ";
-  margin-left: min(1vw, 1em);
+  margin: 0 0 0 min(1vw, 1em);
+  padding: 0;
 }
 
 li {
-  color: #dad2bc;
+  color: var(--color-forest);
+  margin-bottom: 0.2em;
 }
 
 .banner {
   font-size: min(10vw, 120px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.4em;
+  color: var(--color-forest);
 }
 
 div.banner:hover {
   animation: glitch 0.6s infinite;
 }
 
-/* section:hover h1 { */
-/*   animation: glitch 0.6s infinite; */
-/* } */
+section {
+  margin-bottom: 1.5em;
+}
+
+.installers ul {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.installers li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.installers li:hover {
+  animation: none;
+  color: var(--color-forest);
+}
+
+.copyable:hover {
+  animation: glitch 0.6s infinite;
+  background: #221f1f;
+}
+
+.prompt {
+  color: var(--color-vermillion);
+  user-select: none;
+  flex-shrink: 0;
+}
 
 .copyable {
   color: #1f7a8c;
+  display: inline-block;
+  padding: 0.4em 0.6em;
+  background: #1a1818;
+  border-left: 2px solid #1f7a8c;
+  word-break: break-all;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 @keyframes glitch {
   0% {
     text-shadow:
-      2px 2px #b7a55f,
-      -2px 2px #1f7a8c;
+      2px 2px var(--color-vermillion),
+      -2px 2px var(--color-gold);
   }
   10% {
     text-shadow:
-      3px 3px #b7a55f,
-      -3px 1px #1f7a8c;
+      3px 3px var(--color-vermillion),
+      -3px 1px var(--color-gold);
   }
   20% {
     text-shadow:
-      -2px 0 #b7a55f,
-      2px 0 #1f7a8c;
+      -2px 0 var(--color-vermillion),
+      2px 0 var(--color-gold);
   }
   30% {
     text-shadow:
-      1px -1px #b7a55f,
-      -1px 1px #1f7a8c;
+      1px -1px var(--color-vermillion),
+      -1px 1px var(--color-gold);
   }
   40% {
     text-shadow:
-      2px -2px #b7a55f,
-      -2px 2px #1f7a8c;
+      2px -2px var(--color-vermillion),
+      -2px 2px var(--color-gold);
   }
   50% {
     text-shadow:
-      2px 0 #b7a55f,
-      -3px 0 #1f7a8c;
+      2px 0 var(--color-vermillion),
+      -3px 0 var(--color-gold);
   }
   60% {
     text-shadow:
-      -1px -1px #b7a55f,
-      1px 1px #1f7a8c;
+      -1px -1px var(--color-vermillion),
+      1px 1px var(--color-gold);
   }
   70% {
     text-shadow:
-      3px 1px #b7a55f,
-      -1px -3px #1f7a8c;
+      3px 1px var(--color-vermillion),
+      -1px -3px var(--color-gold);
   }
   80% {
     text-shadow:
-      0px 2px #b7a55f,
-      2px -2px #1f7a8c;
+      0px 2px var(--color-vermillion),
+      2px -2px var(--color-gold);
   }
   90% {
     text-shadow:
-      -2px 2px #b7a55f,
-      2px 2px #1f7a8c;
+      -2px 2px var(--color-vermillion),
+      2px 2px var(--color-gold);
   }
   100% {
     text-shadow:
-      2px 0 #b7a55f,
-      -2px 0 #1f7a8c;
+      2px 0 var(--color-vermillion),
+      -2px 0 var(--color-gold);
   }
 }
