@@ -44,17 +44,14 @@ h1::before {
   margin-right: 0.45em;
   vertical-align: -0.05em;
   background: var(--red);
-  border-radius: 50% 0 50% 50%;
 }
 
 .sections section:nth-of-type(3n + 2) h1::before {
   background: var(--blue);
-  border-radius: 50% 50% 0 50%;
 }
 
 .sections section:nth-of-type(3n) h1::before {
   background: var(--amber);
-  border-radius: 50%;
 }
 
 a {
@@ -115,7 +112,6 @@ li {
   display: block;
   height: min(1.2vw, 10px);
   margin-top: 0.18em;
-  border-radius: 999px;
   background: linear-gradient(
     90deg,
     var(--red) 0 22%,
