@@ -1,18 +1,24 @@
 :root {
-  --color-sage: #252323;
-  --color-forest: #dad2bc;
-  --color-vermillion: #b7a55f;
-  --color-gold: #1f7a8c;
+  --bg: #eae1d2;
+  --paper: #f6f2ea;
+  --ink: #22201d;
+  --line: #d8cdb9;
+  --grey: #ded9d0;
+  --red: #dd462b;
+  --blue: #98acc5;
+  --amber: #fba824;
 }
 
-html,
+/* font-size and padding live on body alone — setting them on html too made
+   them compound, inflating the base font and doubling the page gutter */
 body {
-  background-color: var(--color-sage);
-  color: var(--color-forest);
-  font-family: "Fantasque Sans Mono", sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Jost", Futura, "Century Gothic", sans-serif;
   min-height: 100vh;
   padding: min(2vw, 1.5em);
   font-size: min(3vw, 1.2em);
+  line-height: 1.35;
   margin: 0;
 }
 
@@ -22,147 +28,157 @@ body {
 }
 
 h1 {
-  color: var(--color-vermillion);
+  color: var(--ink);
   font-size: min(5vw, 1.4em);
-  margin: 0 0 0.4em 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  margin: 0 0 0.3em 0;
+}
+
+h1::before {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-right: 0.45em;
+  vertical-align: -0.05em;
+  background: var(--red);
+  border-radius: 50% 0 50% 50%;
+}
+
+.sections section:nth-of-type(3n + 2) h1::before {
+  background: var(--blue);
+  border-radius: 50% 50% 0 50%;
+}
+
+.sections section:nth-of-type(3n) h1::before {
+  background: var(--amber);
+  border-radius: 50%;
 }
 
 a {
-  color: var(--color-forest);
+  color: var(--ink);
   text-decoration: none;
-  transition: color 0.15s;
+  display: inline-block;
+  padding: 0.06em 0 0.3em;
+  line-height: 1.2;
+  /* one solid ink rule, Bauhaus-poster style, that draws in from the left
+     on hover */
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 3px;
+  transition: background-size 0.25s ease;
 }
 
-a:hover {
-  color: var(--color-vermillion);
-}
-
-li:hover {
-  animation: glitch 0.6s infinite;
-  color: var(--color-gold);
+a:hover,
+a:focus-visible {
+  background-size: 100% 3px;
+  outline: none;
 }
 
 ul,
 ol {
-  list-style-type: "✱ ";
-  margin: 0 0 0 min(1vw, 1em);
+  list-style: disc;
+  margin: 0 0 0 min(2vw, 1.2em);
   padding: 0;
 }
 
+li::marker {
+  color: var(--red);
+}
+
+.sections section:nth-of-type(3n + 2) li::marker {
+  color: var(--blue);
+}
+
+.sections section:nth-of-type(3n) li::marker {
+  color: var(--amber);
+}
+
 li {
-  color: var(--color-forest);
-  margin-bottom: 0.2em;
+  margin-bottom: 0.1em;
 }
 
 .banner {
   font-size: min(10vw, 120px);
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: 0.4em;
-  color: var(--color-forest);
+  margin-bottom: 0.35em;
+  color: var(--ink);
 }
 
-div.banner:hover {
-  animation: glitch 0.6s infinite;
+.banner::after {
+  content: "";
+  display: block;
+  height: min(1.2vw, 10px);
+  margin-top: 0.18em;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--red) 0 22%,
+    var(--amber) 22% 44%,
+    var(--blue) 44% 70%,
+    var(--ink) 70% 100%
+  );
 }
 
 section {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.1em;
 }
 
 .installers ul {
-  list-style-type: none;
+  list-style: none;
   margin-left: 0;
 }
 
 .installers li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-.installers li:hover {
-  animation: none;
-  color: var(--color-forest);
-}
-
-.copyable:hover {
-  animation: glitch 0.6s infinite;
-  background: #221f1f;
+  margin-bottom: 0.35em;
+  padding-left: 0;
 }
 
 .prompt {
-  color: var(--color-vermillion);
+  color: var(--red);
   user-select: none;
   flex-shrink: 0;
 }
 
 .copyable {
-  color: #1f7a8c;
-  display: inline-block;
-  padding: 0.4em 0.6em;
-  background: #1a1818;
-  border-left: 2px solid #1f7a8c;
-  word-break: break-all;
+  color: var(--ink);
+  /* fills the row so the box keeps its size when the click handler
+     swaps the command out for the "Copied to clipboard!" message */
+  flex: 1;
+  min-width: 0;
+  padding: 0.5em 0.7em;
+  background-color: var(--grey);
+  /* the same ink rule the links use, drawn in from the left on hover */
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 3px;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   cursor: pointer;
-  font-family: inherit;
+  font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  /* shrinks with the viewport so the one-liner keeps fitting on one line,
+     with a floor so it stays readable on a phone (it scrolls there instead) */
+  font-size: clamp(11px, 1.55vw, 0.85em);
+  transition: background-size 0.25s ease;
 }
 
-@keyframes glitch {
-  0% {
-    text-shadow:
-      2px 2px var(--color-vermillion),
-      -2px 2px var(--color-gold);
-  }
-  10% {
-    text-shadow:
-      3px 3px var(--color-vermillion),
-      -3px 1px var(--color-gold);
-  }
-  20% {
-    text-shadow:
-      -2px 0 var(--color-vermillion),
-      2px 0 var(--color-gold);
-  }
-  30% {
-    text-shadow:
-      1px -1px var(--color-vermillion),
-      -1px 1px var(--color-gold);
-  }
-  40% {
-    text-shadow:
-      2px -2px var(--color-vermillion),
-      -2px 2px var(--color-gold);
-  }
-  50% {
-    text-shadow:
-      2px 0 var(--color-vermillion),
-      -3px 0 var(--color-gold);
-  }
-  60% {
-    text-shadow:
-      -1px -1px var(--color-vermillion),
-      1px 1px var(--color-gold);
-  }
-  70% {
-    text-shadow:
-      3px 1px var(--color-vermillion),
-      -1px -3px var(--color-gold);
-  }
-  80% {
-    text-shadow:
-      0px 2px var(--color-vermillion),
-      2px -2px var(--color-gold);
-  }
-  90% {
-    text-shadow:
-      -2px 2px var(--color-vermillion),
-      2px 2px var(--color-gold);
-  }
-  100% {
-    text-shadow:
-      2px 0 var(--color-vermillion),
-      -2px 0 var(--color-gold);
-  }
+/* a scrollbar appearing only while the command overflows would change the
+   box height on copy, so keep it hidden */
+.copyable::-webkit-scrollbar {
+  display: none;
+}
+
+.copyable:hover {
+  background-size: 100% 3px;
 }
