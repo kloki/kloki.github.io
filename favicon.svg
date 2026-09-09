@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- the site's section marker: a disc with one square corner, Bauhaus red
+       on the page's cream ground -->
+  <rect width="32" height="32" fill="#eae1d2" />
+  <path
+    d="M29 3 L16 3 A13 13 0 0 0 3 16 A13 13 0 0 0 16 29 A13 13 0 0 0 29 16 Z"
+    fill="#dd462b"
+  />
+</svg>

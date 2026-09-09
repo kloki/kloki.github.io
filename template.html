@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koen Klinkers</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="banner"><!--banner--></div>
+      <div class="viewbar" role="group" aria-label="view">
+        <button class="viewbtn" data-view="human" type="button" aria-pressed="true">
+          human
+        </button>
+        <button class="viewbtn" data-view="agent" type="button" aria-pressed="false">
+          agent
+        </button>
+      </div>
+      <main class="sections">
+        <!--content-->
+      </main>
+      <pre id="agent-view" tabindex="0"></pre>
+    </div>
+    <script type="text/markdown" id="agent-source">
+      <!--agent-source-->
+    </script>
+    <script>
+      (function () {
+        const buttons = document.querySelectorAll(".viewbtn");
+        const agentView = document.getElementById("agent-view");
+        const agentSource = document.getElementById("agent-source");
+        agentView.textContent = agentSource.textContent.trim();
+
+        function setAgentView(on) {
+          document.body.classList.toggle("agent", on);
+          buttons.forEach(function (button) {
+            const active = (button.dataset.view === "agent") === on;
+            button.setAttribute("aria-pressed", String(active));
+          });
+        }
+
+        buttons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            setAgentView(button.dataset.view === "agent");
+          });
+        });
+
+        if (
+          new URLSearchParams(window.location.search).get("view") === "agent"
+        ) {
+          setAgentView(true);
+        }
+
+        document.body.addEventListener("click", function (event) {
+          if (event.target.classList.contains("copyable")) {
+            const textToCopy = event.target.innerText;
+            navigator.clipboard
+              .writeText(textToCopy)
+              .then(() => {
+                event.target.innerText = "Copied to clipboard!";
+                setTimeout(() => {
+                  event.target.innerText = textToCopy;
+                }, 500);
+              })
+              .catch((err) => {
+                console.error("Failed to copy: ", err);
+              });
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

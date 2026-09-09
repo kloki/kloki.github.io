@@ -1,6 +1,5 @@
 :root {
   --bg: #eae1d2;
-  --paper: #f6f2ea;
   --ink: #22201d;
   --line: #d8cdb9;
   --grey: #ded9d0;
@@ -181,4 +180,107 @@ section {
 
 .copyable:hover {
   background-size: 100% 3px;
+}
+
+/* view switch: two hard-edged cells, Bauhaus segmented control — square
+   for the agent's raw source, circle for the rendered page */
+.viewbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.8em;
+}
+
+.viewbtn {
+  font: inherit;
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  background-color: transparent;
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  padding: 0.4em 1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+/* the pair reads as one block: a single shared rule down the middle */
+.viewbtn + .viewbtn {
+  border-left-width: 0;
+}
+
+.viewbtn::before {
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  background: var(--ink);
+}
+
+.viewbtn[data-view="human"]::before {
+  border-radius: 50%;
+}
+
+.viewbtn[aria-pressed="true"] {
+  background-color: var(--ink);
+  color: var(--bg);
+}
+
+.viewbtn[aria-pressed="true"][data-view="human"]::before {
+  background: var(--blue);
+}
+
+.viewbtn[aria-pressed="true"][data-view="agent"]::before {
+  background: var(--red);
+}
+
+.viewbtn:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* on hover the inactive cell previews its fill from the bottom up */
+.viewbtn[aria-pressed="false"] {
+  background-image: linear-gradient(var(--amber), var(--amber));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% 0;
+  transition: background-size 0.2s ease;
+}
+
+.viewbtn[aria-pressed="false"]:hover {
+  background-size: 100% 100%;
+}
+
+/* agent view: the raw markdown source, verbatim */
+#agent-view {
+  display: none;
+  margin: 0;
+  padding: 1em 1.2em;
+  background-color: var(--grey);
+  border: 0;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+
+.agent-hint {
+  display: none;
+  margin: 0.6em 0 0;
+  font-size: 0.7em;
+}
+
+body.agent .sections {
+  display: none;
+}
+
+body.agent #agent-view {
+  display: block;
+}
+
+body.agent .agent-hint {
+  display: block;
 }

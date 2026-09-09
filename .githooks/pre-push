@@ -1,0 +1,10 @@
+#!/bin/sh
+# Guard against pushing a stale page: if index.html doesn't match index.md,
+# rebuild it and abort the push so the fix can be committed.
+#
+# Enable with: git config core.hooksPath .githooks
+if ! uv run build.py --check >/dev/null 2>&1; then
+  uv run build.py
+  echo "index.html was regenerated from index.md — commit it and push again." >&2
+  exit 1
+fi

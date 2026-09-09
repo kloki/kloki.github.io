@@ -1,0 +1,6 @@
+# koen.klinke.rs
+
+Personal site of Koen Klinkers: tools, games, keyboard layouts, and shell installers.
+
+The complete site content is also available as plain markdown at:
+https://koen.klinke.rs/index.md
