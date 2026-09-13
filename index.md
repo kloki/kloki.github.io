@@ -5,10 +5,10 @@
 - [regect](https://github.com/kloki/regect)
 - [absorb](https://github.com/kloki/absorb)
 - [stpl](https://github.com/kloki/stpl)
-- [tldr](https://github.com/kloki/tldr)
-- [mavsnark](https://github.com/kloki/mavsnark)
-- [claude-sessions](https://github.com/kloki/claude-sessions)
+- [ocpop](https://github.com/kloki/ocpop)
 - [claudeship](https://github.com/kloki/claudeship)
+- [mavsnark](https://github.com/kloki/mavsnark)
+- [tldr](https://github.com/kloki/tldr)
 
 ## Games that I made that you can play.
 
