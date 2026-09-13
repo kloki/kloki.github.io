@@ -98,6 +98,12 @@ li {
   margin-bottom: 0.1em;
 }
 
+.desc {
+  color: var(--ink);
+  opacity: 0.6;
+  font-size: 0.9em;
+}
+
 .banner {
   font-size: min(10vw, 120px);
   font-weight: 700;

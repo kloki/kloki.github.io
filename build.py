@@ -50,6 +50,12 @@ class PageRenderer(mistune.HTMLRenderer):
         tag = "h1" if level <= 2 else f"h{level - 1}"
         return f"<{tag}>{text}</{tag}>\n"
 
+    def list_item(self, text: str) -> str:
+        if " — " in text:
+            link, desc = text.split(" — ", 1)
+            return f'<li>{link} <span class="desc">{desc}</span></li>\n'
+        return f"<li>{text}</li>\n"
+
     def block_code(self, code: str, info: str | None = None) -> str:
         lang = (info or "").split()[0] if info else ""
         if lang not in CODE_LANGS:
