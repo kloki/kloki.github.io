@@ -2,6 +2,7 @@
 
 ## Tools that I made that work for me.
 
+- [nth](https://github.com/kloki/nth) — coding harness
 - [regect](https://github.com/kloki/regect) — regex 101 in the terminal
 - [absorb](https://github.com/kloki/absorb) — speed-read files in the terminal
 - [stpl](https://github.com/kloki/stpl) — CLI notes for humans and agents
